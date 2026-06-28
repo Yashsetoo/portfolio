@@ -520,7 +520,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 560px) {
-  .section { padding: 76px 18px; }
+  .section { padding: 60px 18px; }
   .hero { padding-top: 104px; }
   .hero-stats { gap: 22px; }
   .hero-stats .stat-value { font-size: 1.7rem; }
