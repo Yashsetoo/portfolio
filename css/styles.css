@@ -273,8 +273,8 @@ img { max-width: 100%; display: block; }
 /* =============================================================
    SECTION GENERIC
    ============================================================= */
-.section { padding: 100px 24px; }
-.section-title { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700; margin-bottom: 48px; display: flex; align-items: baseline; gap: 12px; }
+.section { padding: 72px 24px; }
+.section-title { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700; margin-bottom: 40px; display: flex; align-items: baseline; gap: 12px; }
 .section-index { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 1.1rem; }
 .section-lead { color: var(--text-dim); font-size: 1.05rem; max-width: 680px; margin: -32px 0 40px; }
 
@@ -500,10 +500,10 @@ img { max-width: 100%; display: block; }
     gap: 26px; padding: 40px; background: var(--bg-2);
     border-left: 1px solid var(--surface-border);
     transform: translateX(100%); transition: transform var(--transition);
-    overflow-y: auto;
+    overflow-y: auto; z-index: 108;
   }
   .nav-links.open { transform: translateX(0); box-shadow: -20px 0 60px -20px rgba(0,0,0,0.6); }
-  .nav-links a { font-size: 18px; }
+  .nav-links a { font-size: 18px; color: var(--text); }
 
   /* Dim backdrop behind the mobile menu */
   .nav-backdrop {
