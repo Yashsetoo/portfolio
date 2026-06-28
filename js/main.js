@@ -295,6 +295,10 @@
     const links = $("#navLinks");
     const backToTop = $("#backToTop");
 
+    // Backdrop for the mobile slide-in menu
+    const backdrop = el("div", "nav-backdrop");
+    document.body.appendChild(backdrop);
+
     const onScroll = () => {
       navbar.classList.toggle("scrolled", window.scrollY > 30);
       backToTop.classList.toggle("show", window.scrollY > 500);
@@ -302,18 +306,23 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    toggle.addEventListener("click", () => {
-      const open = links.classList.toggle("open");
+    const setMenu = (open) => {
+      links.classList.toggle("open", open);
       toggle.classList.toggle("open", open);
+      backdrop.classList.toggle("show", open);
       toggle.setAttribute("aria-expanded", String(open));
+      // lock page scroll while the menu is open
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+
+    toggle.addEventListener("click", () => setMenu(!links.classList.contains("open")));
+    backdrop.addEventListener("click", () => setMenu(false));
+    links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+
+    // Reset menu state if resized up to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 860) setMenu(false);
     });
-    links.querySelectorAll("a").forEach((a) =>
-      a.addEventListener("click", () => {
-        links.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      })
-    );
   }
 
   /* ---------------- THEME TOGGLE ---------------- */
