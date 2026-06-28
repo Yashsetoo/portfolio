@@ -520,8 +520,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 560px) {
-  .section { padding: 64px 18px; }
-  .container { padding: 0 18px; }
+  .section { padding: 76px 18px; }
   .hero { padding-top: 104px; }
   .hero-stats { gap: 22px; }
   .hero-stats .stat-value { font-size: 1.7rem; }
@@ -533,8 +532,8 @@ img { max-width: 100%; display: block; }
   .chip-2 { top: 12%; right: 6%; }
   .chip-3 { bottom: 18%; left: 4%; }
   .chip-4 { bottom: 6%; right: 10%; }
-  .section-title { margin-bottom: 32px; }
-  .section-lead { margin: -20px 0 28px; }
+  .section-title { margin-bottom: 28px; }
+  .section-lead { margin: -16px 0 28px; }
   .timeline { padding-left: 26px; }
   .footer-inner { flex-direction: column; text-align: center; }
   .back-to-top { bottom: 18px; right: 18px; width: 42px; height: 42px; }

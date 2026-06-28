@@ -193,12 +193,25 @@
   function openCertModal(cert) {
     if (!modalEl) buildModal();
     const isPdf = /\.pdf($|\?)/i.test(cert.link);
+    const absUrl = new URL(cert.link, window.location.href).href;
     const body = modalEl.querySelector(".cert-modal-body");
     modalEl.querySelector(".cert-modal-title").textContent = cert.name;
     modalEl.querySelector(".cert-modal-open").setAttribute("href", cert.link);
-    body.innerHTML = isPdf
-      ? `<iframe src="${cert.link}#toolbar=1&navpanes=0" title="${cert.name}"></iframe>`
-      : `<img src="${cert.link}" alt="${cert.name}" />`;
+
+    if (!isPdf) {
+      body.innerHTML = `<img src="${cert.link}" alt="${cert.name}" />`;
+    } else {
+      const host = window.location.hostname;
+      const isLocal = host === "localhost" || host === "127.0.0.1" || host === "";
+      if (isLocal) {
+        // Local dev: the browser renders the PDF directly
+        body.innerHTML = `<iframe src="${cert.link}#toolbar=1&navpanes=0" title="${cert.name}"></iframe>`;
+      } else {
+        // Production: Google viewer renders PDFs inline on mobile + desktop
+        const viewer = `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(absUrl)}`;
+        body.innerHTML = `<iframe src="${viewer}" title="${cert.name}"></iframe>`;
+      }
+    }
     modalEl.classList.add("open");
     document.body.style.overflow = "hidden";
   }
