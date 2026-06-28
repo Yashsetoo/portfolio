@@ -33,14 +33,16 @@ links, projects, skills, experience, certifications, etc. and save.
 
 Then open http://localhost:8080
 
-## Deploy to GitHub Pages
+## Deploy to GitHub Pages (branch method)
 
-1. Create a new GitHub repository (e.g. `portfolio`).
-2. Push this folder to it (see commands below).
-3. In the repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
-4. The included workflow (`.github/workflows/deploy.yml`) deploys automatically on
-   every push to `main`. Your site goes live at:
+1. Push this folder to a **public** GitHub repository.
+2. In the repo: **Settings → Pages → Build and deployment → Source → "Deploy from a branch"**.
+3. Set **Branch = `main`** and **folder = `/ (root)`**, then **Save**.
+4. Wait ~1 minute. Your site goes live at:
    `https://<your-username>.github.io/<repo-name>/`
+
+Every future push to `main` redeploys automatically. The included `.nojekyll`
+file ensures all files (including the `assets/` folder) are served as-is.
 
 ### First push
 
