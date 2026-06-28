@@ -70,13 +70,6 @@
   function renderAbout() {
     $("#aboutIntro").textContent = SITE.about.intro;
 
-    const c = $("#aboutContact");
-    c.innerHTML = `
-      <a href="mailto:${SITE.email}">✉️ ${SITE.email}</a>
-      <a href="tel:${SITE.phone.replace(/\s/g, "")}">📞 ${SITE.phone}</a>
-      <span>📍 ${SITE.location}</span>
-    `;
-
     const e = SITE.about.education;
     $("#educationCard").innerHTML = `
       <p class="edu-label">Education</p>
