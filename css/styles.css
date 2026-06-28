@@ -508,7 +508,7 @@ img { max-width: 100%; display: block; }
 
   /* Dim backdrop behind the mobile menu */
   .nav-backdrop {
-    position: fixed; inset: 0; z-index: 105; background: rgba(2, 6, 16, 0.55);
+    position: fixed; inset: 0; z-index: 99; background: rgba(2, 6, 16, 0.6);
     backdrop-filter: blur(2px); opacity: 0; pointer-events: none; transition: opacity var(--transition);
   }
   .nav-backdrop.show { opacity: 1; pointer-events: auto; }
