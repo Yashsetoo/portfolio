@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO meta tags -->
+  <title>Yash Jadhav | DevOps & Cloud Engineer</title>
+  <meta name="description" content="Portfolio of Yash Jadhav — DevOps Engineer and certified AWS/Cloud professional specializing in CI/CD automation, Docker/Kubernetes, and cloud infrastructure optimization." />
+  <meta name="author" content="Yash Jadhav" />
+  <meta name="keywords" content="DevOps Engineer, AWS, Cloud, CI/CD, Docker, Kubernetes, Terraform, Ansible, Jenkins, Pune" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Yash Jadhav | DevOps & Cloud Engineer" />
+  <meta property="og:description" content="DevOps Engineer | AWS & Cloud Certified — CI/CD automation, containerization, and cloud infrastructure." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (inline SVG — DevOps infinity loop) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'><path d='M16 10 C9 10 6 15 6 20 C6 25 9 30 16 30 C23 30 27 25 32 20 C37 15 41 10 48 10 C55 10 58 15 58 20 C58 25 55 30 48 30 C41 30 37 25 32 20 C27 15 23 10 16 10' fill='none' stroke='%2338bdf8' stroke-width='5' stroke-linecap='round'/></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-blob blob-1" aria-hidden="true"></div>
+  <div class="bg-blob blob-2" aria-hidden="true"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner container">
+      <a href="#hero" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 40" width="22" height="14">
+            <path d="M16 10 C9 10 6 15 6 20 C6 25 9 30 16 30 C23 30 27 25 32 20 C37 15 41 10 48 10 C55 10 58 15 58 20 C58 25 55 30 48 30 C41 30 37 25 32 20 C27 15 23 10 16 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">Yash<span class="brand-accent">.devops</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#whatido">What I Do</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero container">
+      <div class="hero-content">
+        <p class="hero-greeting reveal" id="heroGreeting"></p>
+        <h1 class="hero-name reveal" id="heroName"></h1>
+        <h2 class="hero-title reveal" id="heroTitle"></h2>
+        <p class="hero-tagline reveal" id="heroTagline"></p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" id="resumeBtn" href="#" download>
+            <span>Download Resume</span>
+          </a>
+          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        </div>
+        <ul class="hero-stats reveal" id="heroStats"></ul>
+      </div>
+      <div class="hero-avatar reveal">
+        <div class="avatar-ring">
+          <span class="avatar-mono" id="avatarMono"></span>
+        </div>
+        <span class="orbit-chip chip-1" aria-hidden="true">🐳</span>
+        <span class="orbit-chip chip-2" aria-hidden="true">☸️</span>
+        <span class="orbit-chip chip-3" aria-hidden="true">☁️</span>
+        <span class="orbit-chip chip-4" aria-hidden="true">⚙️</span>
+        <span class="avatar-status" aria-hidden="true"><span class="pulse-dot"></span> deploying</span>
+      </div>
+    </section>
+
+    <!-- ============ TECH MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p id="aboutIntro"></p>
+          <div class="contact-quick" id="aboutContact"></div>
+        </div>
+        <div class="about-card glass reveal" id="educationCard"></div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I DO ============ -->
+    <section id="whatido" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">02.</span> What I Do</h2>
+      <p class="section-lead reveal">DevOps solutions that bridge development and operations — making software delivery faster and more reliable.</p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">03.</span> Experience</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">04.</span> Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">05.</span> Skills</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section id="certifications" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">06.</span> Certifications</h2>
+      <div class="certs-grid" id="certsGrid"></div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section id="resume" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">07.</span> Resume</h2>
+      <div class="resume-card glass reveal" id="resumeCard"></div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section container">
+      <h2 class="section-title reveal"><span class="section-index">08.</span> Get In Touch</h2>
+      <div class="contact-wrap">
+        <div class="contact-info reveal" id="contactInfo"></div>
+        <form class="contact-form glass reveal" id="contactForm">
+          <div class="form-row">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" required placeholder="Your name" />
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p id="footerText"></p>
+      <div class="footer-socials" id="footerSocials"></div>
+    </div>
+  </footer>
+
+  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
