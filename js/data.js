@@ -217,7 +217,7 @@ const SITE = {
 
   /* ---------- Certifications ---------- */
   certifications: [
-    { name: "Internship in Cloud Computing", icon: "☁️", link: "#" },
+    { name: "Internship in Cloud Computing", icon: "☁️", link: "assets/certs/cloud-internship.png" },
     { name: "Redhat Linux Training", icon: "🎩", link: "assets/certs/linux.png" },
     { name: "AWS Training", icon: "🟧", link: "assets/certs/aws.png" },
     { name: "CCNA Training", icon: "🌐", link: "assets/certs/ccna.png" },
