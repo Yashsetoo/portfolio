@@ -218,9 +218,9 @@ const SITE = {
   /* ---------- Certifications ---------- */
   certifications: [
     { name: "Internship in Cloud Computing", icon: "☁️", link: "#" },
-    { name: "Redhat Linux Training", icon: "🎩", link: "assets/certs/linux.pdf" },
-    { name: "AWS Training", icon: "🟧", link: "assets/certs/aws.pdf" },
-    { name: "CCNA Training", icon: "🌐", link: "assets/certs/ccna.pdf" },
+    { name: "Redhat Linux Training", icon: "🎩", link: "assets/certs/linux.png" },
+    { name: "AWS Training", icon: "🟧", link: "assets/certs/aws.png" },
+    { name: "CCNA Training", icon: "🌐", link: "assets/certs/ccna.png" },
     { name: "DevOps Training", icon: "♾️", link: "assets/certs/devops.png" },
   ],
 };
