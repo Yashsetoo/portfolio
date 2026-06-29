@@ -495,6 +495,12 @@ img { max-width: 100%; display: block; }
   .form-row input, .form-row textarea { font-size: 16px; }
 
   .nav-toggle { display: flex; z-index: 110; }
+  /* While the menu is open, drop the navbar's backdrop-filter so the
+     fixed menu panel is sized to the viewport (not clamped to the navbar). */
+  .navbar.menu-open {
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    background: transparent; border-bottom-color: transparent;
+  }
   .nav-links {
     position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px);
     flex-direction: column; align-items: flex-start; justify-content: center;
