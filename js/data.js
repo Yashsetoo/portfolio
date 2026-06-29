@@ -32,6 +32,13 @@ const SITE = {
   /* ---------- Hero ---------- */
   hero: {
     greeting: "Hey there, I'm",
+    roles: [
+      "DevOps Engineer",
+      "AWS & Cloud Certified",
+      "CI/CD Automation Specialist",
+      "Docker & Kubernetes Enthusiast",
+      "Cloud Infrastructure Engineer",
+    ],
     tagline:
       "Highly motivated Computer Engineering graduate and certified AWS/DevOps professional specializing in CI/CD automation, containerized environments (Docker/Kubernetes), and cloud infrastructure optimization — driving up to 60% faster deployment cycles.",
     stats: [

@@ -17,7 +17,6 @@
   function renderHero() {
     $("#heroGreeting").textContent = SITE.hero.greeting;
     $("#heroName").textContent = SITE.name;
-    $("#heroTitle").textContent = SITE.title;
     $("#heroTagline").textContent = SITE.hero.tagline;
     $("#resumeBtn").setAttribute("href", SITE.resume);
 
@@ -34,9 +33,46 @@
     const stats = $("#heroStats");
     SITE.hero.stats.forEach((s) => {
       const li = el("li");
-      li.appendChild(el("span", "stat-value", s.value));
+      const val = el("span", "stat-value", "0");
+      val.dataset.value = s.value; // e.g. "60%", "6+", "5"
+      li.appendChild(val);
       li.appendChild(el("span", "stat-label", s.label));
       stats.appendChild(li);
+    });
+  }
+
+  /* ---------------- TYPEWRITER (rotating roles) ---------------- */
+  function typewriter() {
+    const target = $("#heroTitle");
+    const roles = (SITE.hero.roles && SITE.hero.roles.length) ? SITE.hero.roles : [SITE.title];
+    let i = 0, char = 0, deleting = false;
+    const tick = () => {
+      const word = roles[i];
+      char += deleting ? -1 : 1;
+      target.textContent = word.slice(0, char);
+      let delay = deleting ? 45 : 95;
+      if (!deleting && char === word.length) { deleting = true; delay = 1600; }
+      else if (deleting && char === 0) { deleting = false; i = (i + 1) % roles.length; delay = 350; }
+      setTimeout(tick, delay);
+    };
+    tick();
+  }
+
+  /* ---------------- COUNT-UP STATS ---------------- */
+  function animateStats() {
+    document.querySelectorAll(".stat-value").forEach((node) => {
+      const raw = node.dataset.value || "";
+      const num = parseInt(raw, 10);
+      const suffix = raw.replace(/[0-9.]/g, "");
+      if (isNaN(num)) { node.textContent = raw; return; }
+      const duration = 1100, start = performance.now();
+      const frame = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        node.textContent = Math.round(eased * num) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
     });
   }
 
@@ -308,6 +344,13 @@
     const onScroll = () => {
       navbar.classList.toggle("scrolled", window.scrollY > 30);
       backToTop.classList.toggle("show", window.scrollY > 500);
+      // scroll progress bar
+      const bar = $("#scrollProgress");
+      if (bar) {
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        bar.style.width = pct + "%";
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -388,5 +431,7 @@
     wireNav();
     wireTheme();
     wireReveal(); // run last so dynamically-added .reveal nodes are observed
+    typewriter();
+    animateStats();
   });
 })();

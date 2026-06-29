@@ -115,6 +115,15 @@ img { max-width: 100%; display: block; }
 }
 
 /* =============================================================
+   SCROLL PROGRESS BAR
+   ============================================================= */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--gradient); z-index: 200; transition: width 0.08s linear;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* =============================================================
    NAVBAR
    ============================================================= */
 .navbar {
@@ -186,10 +195,19 @@ img { max-width: 100%; display: block; }
 .hero-greeting { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 16px; margin-bottom: 14px; }
 .hero-name {
   font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; line-height: 1.05;
-  background: var(--gradient); -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(110deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+  background-size: 250% auto;
+  -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; margin-bottom: 8px;
+  animation: gradient-shift 6s ease infinite;
 }
-.hero-title { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 600; color: var(--text-dim); margin-bottom: 22px; }
+@keyframes gradient-shift { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
+.hero-title { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 600; color: var(--text-dim); margin-bottom: 22px; min-height: 1.6em; display: flex; align-items: center; }
+.hero-title .type-cursor {
+  display: inline-block; width: 3px; height: 1.1em; margin-left: 5px;
+  background: var(--accent); border-radius: 2px; animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
 .hero-tagline { font-size: 1.05rem; color: var(--text-dim); max-width: 680px; margin-bottom: 34px; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
 
@@ -208,10 +226,12 @@ img { max-width: 100%; display: block; }
 }
 .avatar-ring::before {
   content: ""; position: absolute; inset: -4px; border-radius: 50%; padding: 4px;
-  background: var(--gradient);
+  background: conic-gradient(from 0deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: spin 7s linear infinite;
 }
+@keyframes spin { to { transform: rotate(360deg); } }
 .avatar-mono {
   font-size: clamp(3.4rem, 7vw, 5.5rem); font-weight: 800; letter-spacing: 2px;
   background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
@@ -274,7 +294,8 @@ img { max-width: 100%; display: block; }
    SECTION GENERIC
    ============================================================= */
 .section { padding: 72px 24px; }
-.section-title { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700; margin-bottom: 40px; display: flex; align-items: baseline; gap: 12px; }
+.section-title { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 700; margin-bottom: 40px; display: flex; align-items: center; gap: 12px; }
+.section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--surface-border), transparent); }
 .section-index { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 1.1rem; }
 .section-lead { color: var(--text-dim); font-size: 1.05rem; max-width: 680px; margin: -32px 0 40px; }
 
@@ -474,6 +495,7 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .bg-blob { animation: none; }
+  .hero-name, .avatar-ring::before, .type-cursor, .marquee-track, .pulse-dot, .orbit-chip { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -486,6 +508,7 @@ img { max-width: 100%; display: block; }
   .hero { flex-direction: column-reverse; text-align: center; gap: 28px; min-height: auto; padding-top: 120px; }
   .hero-content { max-width: 100%; }
   .hero-actions, .hero-stats { justify-content: center; }
+  .hero-title { justify-content: center; }
   .hero-tagline { margin-left: auto; margin-right: auto; }
   .resume-card { flex-direction: column; align-items: flex-start; }
   .resume-actions { width: 100%; }

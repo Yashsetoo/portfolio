@@ -14,6 +14,9 @@
   <meta property="og:title" content="Yash Jadhav | DevOps & Cloud Engineer" />
   <meta property="og:description" content="DevOps Engineer | AWS & Cloud Certified — CI/CD automation, containerization, and cloud infrastructure." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yashsetoo.github.io/portfolio/" />
+  <meta property="og:image" content="https://yashsetoo.github.io/portfolio/assets/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon (inline SVG — DevOps infinity loop) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'><path d='M16 10 C9 10 6 15 6 20 C6 25 9 30 16 30 C23 30 27 25 32 20 C37 15 41 10 48 10 C55 10 58 15 58 20 C58 25 55 30 48 30 C41 30 37 25 32 20 C27 15 23 10 16 10' fill='none' stroke='%2338bdf8' stroke-width='5' stroke-linecap='round'/></svg>" />
@@ -23,9 +26,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=6" />
+  <link rel="stylesheet" href="css/styles.css?v=7" />
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- Animated background -->
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-blob blob-1" aria-hidden="true"></div>
@@ -71,7 +77,7 @@
       <div class="hero-content">
         <p class="hero-greeting reveal" id="heroGreeting"></p>
         <h1 class="hero-name reveal" id="heroName"></h1>
-        <h2 class="hero-title reveal" id="heroTitle"></h2>
+        <h2 class="hero-title reveal"><span id="heroTitle"></span><span class="type-cursor" aria-hidden="true"></span></h2>
         <p class="hero-tagline reveal" id="heroTagline"></p>
         <div class="hero-actions reveal">
           <a class="btn btn-primary" id="resumeBtn" href="#" download>
@@ -182,7 +188,7 @@
   <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=6"></script>
-  <script src="js/main.js?v=6"></script>
+  <script src="js/data.js?v=7"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
