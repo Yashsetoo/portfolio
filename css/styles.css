@@ -520,7 +520,7 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .bg-blob { animation: none; }
-  .hero-name, .avatar-ring::before, .type-cursor, .marquee-track, .pulse-dot, .orbit-chip, .scroll-indicator { animation: none; }
+  .hero-name, .avatar-ring, .avatar-ring::before, .type-cursor, .marquee-track, .pulse-dot, .orbit-chip, .scroll-indicator { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -529,6 +529,10 @@ img { max-width: 100%; display: block; }
    ============================================================= */
 @media (max-width: 860px) {
   .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+
+  /* Drop the fixed layered gradient on mobile (it janks/mis-renders on
+     Android Chrome & iOS Safari). The blurred blobs still give ambiance. */
+  [data-theme="dark"] body { background: var(--bg); background-attachment: scroll; }
 
   .hero { flex-direction: column-reverse; text-align: center; gap: 28px; min-height: auto; padding-top: 120px; }
   .hero-content { max-width: 100%; }
@@ -581,8 +585,8 @@ img { max-width: 100%; display: block; }
   .hero { padding-top: 104px; }
   .hero-stats { gap: 22px; }
   .hero-stats .stat-value { font-size: 1.7rem; }
-  .hero-actions { width: 100%; }
-  .hero-actions .btn { flex: 1; justify-content: center; }
+  .hero-actions { width: 100%; flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
   /* Keep the floating DevOps chips on phones, just smaller & closer */
   .orbit-chip { width: 38px; height: 38px; font-size: 17px; border-radius: 11px; }
   .chip-1 { top: 4%; left: 8%; }
