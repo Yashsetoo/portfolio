@@ -186,11 +186,12 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -10px var(--accent); }
 .btn-ghost { background: transparent; border-color: var(--surface-border); color: var(--text); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* =============================================================
    HERO
    ============================================================= */
-.hero { min-height: 100vh; display: flex; align-items: center; gap: 48px; padding-top: 100px; padding-bottom: 60px; }
+.hero { min-height: 100vh; display: flex; align-items: center; gap: 48px; padding-top: 100px; padding-bottom: 60px; position: relative; }
 .hero-content { max-width: 720px; flex: 1; }
 .hero-greeting { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 16px; margin-bottom: 14px; }
 .hero-name {
@@ -215,6 +216,30 @@ img { max-width: 100%; display: block; }
 .hero-stats li { display: flex; flex-direction: column; }
 .hero-stats .stat-value { font-size: 2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-stats .stat-label { font-size: 13px; color: var(--text-dim); }
+
+/* Hero social icons (circular, hover-lift) */
+.hero-socials { display: flex; gap: 14px; margin-top: 30px; }
+.hero-socials a {
+  display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--surface-border); color: var(--text);
+  transition: var(--transition);
+}
+.hero-socials a svg { width: 20px; height: 20px; }
+.hero-socials a:hover {
+  transform: translateY(-3px) scale(1.08); border-color: transparent;
+  background: var(--gradient); color: #061018; box-shadow: 0 10px 24px -8px var(--accent);
+}
+
+/* Bouncing scroll-down indicator */
+.scroll-indicator {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%;
+  color: var(--text-dim); border: 1px solid var(--surface-border); background: var(--surface);
+  animation: scroll-bounce 1.8s ease-in-out infinite; transition: color var(--transition), border-color var(--transition);
+}
+.scroll-indicator svg { width: 22px; height: 22px; }
+.scroll-indicator:hover { color: var(--accent); border-color: var(--accent); }
+@keyframes scroll-bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 10px); } }
 
 /* Hero avatar / monogram */
 .hero-avatar { flex-shrink: 0; display: grid; place-items: center; }
@@ -495,7 +520,7 @@ img { max-width: 100%; display: block; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .bg-blob { animation: none; }
-  .hero-name, .avatar-ring::before, .type-cursor, .marquee-track, .pulse-dot, .orbit-chip { animation: none; }
+  .hero-name, .avatar-ring::before, .type-cursor, .marquee-track, .pulse-dot, .orbit-chip, .scroll-indicator { animation: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -509,6 +534,8 @@ img { max-width: 100%; display: block; }
   .hero-content { max-width: 100%; }
   .hero-actions, .hero-stats { justify-content: center; }
   .hero-title { justify-content: center; }
+  .hero-socials { justify-content: center; }
+  .scroll-indicator { display: none; }
   .hero-tagline { margin-left: auto; margin-right: auto; }
   .resume-card { flex-direction: column; align-items: flex-start; }
   .resume-actions { width: 100%; }

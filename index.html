@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=9" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
 </head>
 <body>
   <!-- Scroll progress bar -->
@@ -80,12 +80,21 @@
         <h2 class="hero-title reveal"><span id="heroTitle"></span><span class="type-cursor" aria-hidden="true"></span></h2>
         <p class="hero-tagline reveal" id="heroTagline"></p>
         <div class="hero-actions reveal">
-          <a class="btn btn-primary" id="resumeBtn" href="#" download>
-            <span>Download Resume</span>
+          <a class="btn btn-primary" href="#contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Get in Touch
           </a>
-          <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+          <a class="btn btn-ghost" href="#projects">
+            View Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+          <a class="btn btn-ghost" id="resumeBtn" href="#" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Resume
+          </a>
         </div>
         <ul class="hero-stats reveal" id="heroStats"></ul>
+        <div class="hero-socials reveal" id="heroSocials"></div>
       </div>
       <div class="hero-avatar reveal">
         <div class="avatar-ring">
@@ -97,6 +106,9 @@
         <span class="orbit-chip chip-4" aria-hidden="true">⚙️</span>
         <span class="avatar-status" aria-hidden="true"><span class="pulse-dot"></span> deploying</span>
       </div>
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to content">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
     </section>
 
     <!-- ============ TECH MARQUEE ============ -->
@@ -188,7 +200,7 @@
   <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=9"></script>
-  <script src="js/main.js?v=9"></script>
+  <script src="js/data.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
 </body>
 </html>
