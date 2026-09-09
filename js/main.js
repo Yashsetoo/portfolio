@@ -82,14 +82,15 @@
   function animateStats() {
     document.querySelectorAll(".stat-value").forEach((node) => {
       const raw = node.dataset.value || "";
-      const num = parseInt(raw, 10);
+      const isFloat = raw.includes(".");
+      const num = isFloat ? parseFloat(raw) : parseInt(raw, 10);
       const suffix = raw.replace(/[0-9.]/g, "");
       if (isNaN(num)) { node.textContent = raw; return; }
       const duration = 1100, start = performance.now();
       const frame = (now) => {
         const p = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
-        node.textContent = Math.round(eased * num) + suffix;
+        node.textContent = (isFloat ? (eased * num).toFixed(2) : Math.round(eased * num)) + suffix;
         if (p < 1) requestAnimationFrame(frame);
       };
       requestAnimationFrame(frame);
