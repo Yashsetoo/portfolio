@@ -436,6 +436,126 @@
     items.forEach((i) => obs.observe(i));
   }
 
+  /* ---------------- STARFIELD CONSTELLATION PARTICLES ---------------- */
+  function initStarfield() {
+    const canvas = document.getElementById("starfieldCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 35 : 75;
+    const particles = [];
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.5 + 0.6,
+        alpha: Math.random() * 0.6 + 0.2,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+      });
+    }
+
+    let animId;
+    function render() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw constellation connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 115) {
+            const alpha = (1 - dist / 115) * 0.12;
+            ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw floating starlight particles
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        p.alpha += Math.sin(Date.now() * p.twinkleSpeed) * 0.006;
+        const currentAlpha = Math.max(0.15, Math.min(0.85, p.alpha));
+
+        ctx.fillStyle = `rgba(245, 245, 247, ${currentAlpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      animId = requestAnimationFrame(render);
+    }
+
+    render();
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }, { passive: true });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cancelAnimationFrame(animId);
+      else render();
+    });
+  }
+
+  /* ---------------- CURSOR GLOW & CARD SPOTLIGHT ---------------- */
+  function initSpotlight() {
+    const glow = document.getElementById("cursorGlow");
+    let targetX = -500, targetY = -500;
+    let currentX = -500, currentY = -500;
+
+    window.addEventListener("pointermove", (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      if (glow) glow.style.opacity = "1";
+    }, { passive: true });
+
+    window.addEventListener("pointerleave", () => {
+      if (glow) glow.style.opacity = "0";
+    });
+
+    function updateGlow() {
+      if (glow) {
+        currentX += (targetX - currentX) * 0.15;
+        currentY += (targetY - currentY) * 0.15;
+        glow.style.left = `${currentX}px`;
+        glow.style.top = `${currentY}px`;
+      }
+      requestAnimationFrame(updateGlow);
+    }
+    requestAnimationFrame(updateGlow);
+
+    // Dynamic Card Edge Spotlight on mousemove
+    document.querySelectorAll(".glass").forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }, { passive: true });
+    });
+  }
+
   /* ---------------- INIT ---------------- */
   document.addEventListener("DOMContentLoaded", () => {
     renderHero();
@@ -454,5 +574,7 @@
     wireReveal(); // run last so dynamically-added .reveal nodes are observed
     typewriter();
     animateStats();
+    initStarfield();
+    initSpotlight();
   });
 })();
