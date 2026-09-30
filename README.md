@@ -1,14 +1,19 @@
 # Yash Jadhav — DevOps Portfolio
 
-A fast, responsive, dark-themed portfolio website for a DevOps / Cloud Engineer.
+A fast, responsive portfolio website for a DevOps / Cloud Engineer.
 Built with plain HTML, CSS, and JavaScript — no build step, no framework.
+
+The visual design (floating pill navbar, orange accents, dark rounded sections
+with glass cards, project carousel, crossing marquee bands) is modelled on the
+[Product Designer Portfolio](https://www.figma.com/community/file/1299737213921915682)
+Figma community template by Jayesh Patil.
 
 ## Project structure
 
 ```
 .
 ├─ index.html              # page structure
-├─ css/styles.css          # all styling + light/dark themes
+├─ css/styles.css          # all styling (design tokens at the top)
 ├─ js/data.js              # ★ ALL CONTENT lives here (edit this)
 ├─ js/main.js              # rendering + interactions
 ├─ assets/

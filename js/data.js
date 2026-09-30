@@ -31,7 +31,14 @@ const SITE = {
 
   /* ---------- Hero ---------- */
   hero: {
-    greeting: "Hey there, I'm",
+    greeting: "Hello!",
+    // Big two-line headline: "I'm <first name>," / shortTitle
+    shortTitle: "DevOps Engineer",
+    // Short line beside the portrait (left)
+    quote:
+      "Keyless CI/CD, resilient AKS clusters and Terraform-driven infrastructure across Azure & AWS.",
+    // Headline number beside the portrait (right)
+    highlight: { value: "99.99%", label: "System Availability" },
     roles: [
       "DevOps & Multi-Cloud Engineer",
       "Azure & AWS Specialist",
@@ -53,32 +60,26 @@ const SITE = {
   /* ---------- What I Do (Services) ---------- */
   whatIDo: [
     {
-      icon: "☸️",
       title: "Kubernetes & Cloud Infrastructure",
       description: "Orchestrating microservices on Azure Kubernetes Service (AKS across DEV/UAT/PROD) and AWS with 99.99% availability and canary rollouts.",
     },
     {
-      icon: "🔁",
       title: "Keyless CI/CD Automation",
       description: "Building secure, multi-stage Azure DevOps and GitHub Actions pipelines using OpenID Connect (OIDC) and ACR digest-verified image promotion.",
     },
     {
-      icon: "📜",
       title: "Infrastructure as Code (IaC)",
       description: "Provisioning reproducible cloud environments using Terraform, Ansible, Helm, and modular templates across multi-tier setups.",
     },
     {
-      icon: "💰",
       title: "Cloud FinOps & Optimization",
       description: "Executing data-driven FinOps initiatives across AKS node pools and Azure Storage tiers, reducing monthly cloud expenditure by ~35%.",
     },
     {
-      icon: "📊",
       title: "SRE Observability & Telemetry",
       description: "Implementing OpenTelemetry, Azure Application Insights, and Log Analytics (KQL) for automated liveness/readiness probes and rapid MTTD.",
     },
     {
-      icon: "🔐",
       title: "Cloud Security & Secrets Store",
       description: "Enforcing zero static credentials using Azure Key Vault with Secrets Store CSI, Workload Identity, and AWS SSM Parameter Store.",
     },
@@ -186,7 +187,6 @@ const SITE = {
   skills: [
     {
       category: "Cloud Platforms",
-      icon: "☁️",
       items: [
         "Microsoft Azure (AKS, Functions, Key Vault, Storage, VNet, ACR, Monitor)",
         "AWS (EC2, S3, VPC, IAM, RDS, SSM Parameter Store, CloudWatch, Route 53)",
@@ -194,7 +194,6 @@ const SITE = {
     },
     {
       category: "CI/CD & IaC",
-      icon: "⚙️",
       items: [
         "Azure DevOps Pipelines", "GitHub Actions (OIDC Keyless Auth)",
         "Terraform", "Ansible", "Jenkins", "Docker", "Helm", "Git",
@@ -202,7 +201,6 @@ const SITE = {
     },
     {
       category: "Container & Cloud Systems",
-      icon: "🐳",
       items: [
         "Kubernetes (AKS, EKS)", "Docker Compose", "Azure Container Registry (ACR)",
         "AWS ECR", "Nginx Reverse Proxy", "Microservices Architecture",
@@ -210,7 +208,6 @@ const SITE = {
     },
     {
       category: "SRE & Observability",
-      icon: "📊",
       items: [
         "Azure Monitor", "Application Insights", "Log Analytics (KQL)",
         "OpenTelemetry", "Prometheus", "Grafana", "AWS CloudWatch", "Synthetic Probes",
@@ -218,7 +215,6 @@ const SITE = {
     },
     {
       category: "Security & FinOps",
-      icon: "🔐",
       items: [
         "Azure Workload Identity", "Secrets Store CSI", "Azure Key Vault",
         "AWS IAM / SSM Parameter Store", "Trivy Vulnerability Scanning", "Cloud Cost Optimization",
@@ -226,7 +222,6 @@ const SITE = {
     },
     {
       category: "Linux & Networking",
-      icon: "🐧",
       items: [
         "Linux Administration (Ubuntu, RHEL)", "Bash Scripting", "Python",
         "CCNA Networking (TCP/IP, Subnetting, VLANs, Routing, Firewalls)",
@@ -236,10 +231,10 @@ const SITE = {
 
   /* ---------- Certifications & Professional Training ---------- */
   certifications: [
-    { name: "AWS & DevOps Cloud Engineering (SevenMentor)", icon: "🟧", link: "assets/certs/aws.png" },
-    { name: "CCNA Routing, Switching & Network Security (SevenMentor)", icon: "🌐", link: "assets/certs/ccna.png" },
-    { name: "Red Hat Enterprise Linux Administration & Automation", icon: "🎩", link: "assets/certs/linux.png" },
-    { name: "Cloud Architecture & Deployments (Acmegrade)", icon: "☁️", link: "assets/certs/cloud-internship.png" },
-    { name: "DevOps & CI/CD Pipeline Automation", icon: "♾️", link: "assets/certs/devops.png" },
+    { name: "AWS & DevOps Cloud Engineering (SevenMentor)", link: "assets/certs/aws.png" },
+    { name: "CCNA Routing, Switching & Network Security (SevenMentor)", link: "assets/certs/ccna.png" },
+    { name: "Red Hat Enterprise Linux Administration & Automation", link: "assets/certs/linux.png" },
+    { name: "Cloud Architecture & Deployments (Acmegrade)", link: "assets/certs/cloud-internship.png" },
+    { name: "DevOps & CI/CD Pipeline Automation", link: "assets/certs/devops.png" },
   ],
 };

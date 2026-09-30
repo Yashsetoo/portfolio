@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,7 @@
   <meta name="description" content="Portfolio of Yash Jadhav — DevOps & Multi-Cloud Engineer specializing in Azure Kubernetes Service (AKS), AWS, keyless CI/CD automation, Terraform IaC, FinOps cost optimization, and SRE observability." />
   <meta name="author" content="Yash Jadhav" />
   <meta name="keywords" content="DevOps Engineer, Azure AKS, AWS, Cloud, CI/CD, Kubernetes, Terraform, Ansible, FinOps, SRE, OpenTelemetry, Pune" />
+  <meta name="theme-color" content="#171717" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Yash Jadhav | DevOps & Multi-Cloud Engineer | Azure & AWS Specialist" />
@@ -18,193 +19,263 @@
   <meta property="og:image" content="https://yashsetoo.github.io/portfolio/assets/profile.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Favicon (inline SVG — DevOps infinity loop) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'><path d='M16 10 C9 10 6 15 6 20 C6 25 9 30 16 30 C23 30 27 25 32 20 C37 15 41 10 48 10 C55 10 58 15 58 20 C58 25 55 30 48 30 C41 30 37 25 32 20 C27 15 23 10 16 10' fill='none' stroke='%2338bdf8' stroke-width='5' stroke-linecap='round'/></svg>" />
+  <!-- Favicon (inline SVG — orange monogram) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%23FD853A'/><text x='32' y='41' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%23fff' text-anchor='middle'>YJ</text></svg>" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=11" />
+  <link rel="stylesheet" href="css/styles.css?v=13" />
 </head>
 <body>
+  <a class="skip-link" href="#services">Skip to content</a>
+
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- Animated background -->
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-blob blob-1" aria-hidden="true"></div>
-  <div class="bg-blob blob-2" aria-hidden="true"></div>
-
-  <!-- ============ NAVBAR ============ -->
+  <!-- ============ NAVBAR (floating dark pill, logo centred) ============ -->
   <header class="navbar" id="navbar">
-    <nav class="nav-inner container">
-      <a href="#hero" class="brand">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 40" width="22" height="14">
-            <path d="M16 10 C9 10 6 15 6 20 C6 25 9 30 16 30 C23 30 27 25 32 20 C37 15 41 10 48 10 C55 10 58 15 58 20 C58 25 55 30 48 30 C41 30 37 25 32 20 C27 15 23 10 16 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="brand-text">Yash<span class="brand-accent">.devops</span></span>
+    <nav class="nav-pill" aria-label="Primary">
+      <a href="#hero" class="brand" aria-label="Yash Jadhav — back to top">
+        <span class="brand-mark" aria-hidden="true">YJ</span>
+        <span class="brand-text">YASH</span>
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#whatido">What I Do</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
-            <span class="theme-icon">🌙</span>
-          </button>
-        </li>
-      </ul>
+      <div class="nav-links" id="navLinks">
+        <ul class="nav-group nav-left">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+        <ul class="nav-group nav-right">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certificates</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <main>
     <!-- ============ HERO ============ -->
-    <section id="hero" class="hero container">
-      <div class="hero-content">
-        <div class="telemetry-pill reveal">
-          <span class="telemetry-ping" aria-hidden="true"></span>
-          <span>PROD INFRASTRUCTURE &middot; ALL SYSTEMS OPERATIONAL</span>
+    <section id="hero" class="hero">
+      <div class="container">
+        <div class="hero-head">
+          <span class="hello-badge reveal">
+            <span id="heroGreeting"></span>
+            <svg class="doodle doodle-hello" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 30 15 24M13 12l6 6M26 5v10"/></svg>
+          </span>
+          <h1 class="hero-name reveal" id="heroName"></h1>
+          <svg class="doodle doodle-name" viewBox="0 0 40 40" aria-hidden="true"><path d="M34 10 25 16M27 28l-6-6M14 35V25"/></svg>
+          <p class="hero-role reveal"><span class="hero-role-dot" aria-hidden="true"></span><span id="heroTitle"></span><span class="type-cursor" aria-hidden="true"></span></p>
         </div>
-        <p class="hero-greeting reveal" id="heroGreeting"></p>
-        <h1 class="hero-name reveal" id="heroName"></h1>
-        <h2 class="hero-title reveal"><span id="heroTitle"></span><span class="type-cursor" aria-hidden="true"></span></h2>
-        <p class="hero-tagline reveal" id="heroTagline"></p>
-        <div class="hero-actions reveal">
-          <a class="btn btn-primary" href="#contact">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Get in Touch
-          </a>
-          <a class="btn btn-ghost" href="#projects">
-            View Projects
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-          </a>
-          <a class="btn btn-ghost" id="resumeBtn" href="#" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-            Resume
-          </a>
-        </div>
-        <ul class="hero-stats reveal" id="heroStats"></ul>
-        <div class="hero-socials reveal" id="heroSocials"></div>
-      </div>
-      <div class="hero-avatar reveal">
-        <div class="avatar-ring">
-          <span class="avatar-mono" id="avatarMono"></span>
-        </div>
-        <span class="orbit-chip chip-1" aria-hidden="true">🐳</span>
-        <span class="orbit-chip chip-2" aria-hidden="true">☸️</span>
-        <span class="orbit-chip chip-3" aria-hidden="true">☁️</span>
-        <span class="orbit-chip chip-4" aria-hidden="true">⚙️</span>
-        <span class="avatar-status" aria-hidden="true"><span class="pulse-dot"></span> deploying</span>
-      </div>
-      <a href="#about" class="scroll-indicator" aria-label="Scroll to content">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-      </a>
-    </section>
 
-    <!-- ============ TECH MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track" id="marqueeTrack"></div>
-    </div>
+        <div class="hero-stage">
+          <div class="hero-quote reveal">
+            <svg class="quote-icon" viewBox="0 0 36 28" aria-hidden="true"><path d="M0 28V16.6C0 7.4 5 1.8 14.2 0l1.6 3.9C10.4 5.6 7.8 9 7.6 13.6H14V28H0Zm20.8 0V16.6C20.8 7.4 25.8 1.8 35 0l1 3.9c-5.4 1.7-8 5.1-8.2 9.7h6.4V28H20.8Z"/></svg>
+            <p id="heroQuote"></p>
+          </div>
 
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">01.</span> About Me</h2>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p id="aboutIntro"></p>
+          <div class="hero-visual reveal">
+            <span class="hero-disc" aria-hidden="true"></span>
+            <div class="hero-photo avatar-ring">
+              <span class="avatar-mono" id="avatarMono"></span>
+            </div>
+            <div class="hero-cta glass-pill">
+              <a class="btn btn-orange" href="#projects">
+                Portfolio
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+              </a>
+              <a class="btn btn-ghost-light" href="#contact">Hire me</a>
+            </div>
+          </div>
+
+          <div class="hero-highlight reveal" id="heroHighlight"></div>
         </div>
-        <div class="about-card glass reveal" id="educationCard"></div>
       </div>
     </section>
 
-    <!-- ============ WHAT I DO ============ -->
-    <section id="whatido" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">02.</span> What I Do</h2>
-      <p class="section-lead reveal">DevOps solutions that bridge development and operations — making software delivery faster and more reliable.</p>
-      <div class="services-grid" id="servicesGrid"></div>
+    <!-- ============ SERVICES (dark) ============ -->
+    <section id="services" class="section-dark services">
+      <span class="blob blob-a" aria-hidden="true"></span>
+      <span class="blob blob-b" aria-hidden="true"></span>
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title reveal">My <span class="accent">Services</span></h2>
+          <p class="section-lead reveal" id="servicesLead"></p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+        <div class="dots dots-services" id="servicesDots" aria-hidden="true"></div>
+      </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section id="experience" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">03.</span> Experience</h2>
-      <div class="timeline" id="timeline"></div>
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title center reveal">My <span class="accent">Work Experience</span></h2>
+        <div class="timeline" id="timeline"></div>
+      </div>
     </section>
 
-    <!-- ============ PROJECTS ============ -->
-    <section id="projects" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">04.</span> Projects</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
+    <!-- ============ ABOUT — WHY HIRE ME ============ -->
+    <section id="about" class="section section-tight">
+      <div class="container">
+        <div class="hire-card">
+          <div class="hire-visual reveal" aria-hidden="true">
+            <span class="hire-blob"></span>
+            <span class="hire-ring"></span>
+            <div class="hire-photo" id="hirePhoto"></div>
+            <svg class="doodle doodle-hire" viewBox="0 0 40 40"><path d="M6 30 15 24M13 12l6 6M26 5v10"/></svg>
+          </div>
+          <div class="hire-body">
+            <h2 class="section-title reveal">Why <span class="accent">Hire me</span>?</h2>
+            <p class="hire-text reveal" id="aboutIntro"></p>
+            <ul class="hire-stats reveal" id="heroStats" aria-label="Highlights"></ul>
+            <div class="edu-card reveal" id="educationCard"></div>
+            <div class="hire-actions reveal" id="resumeCard">
+              <a class="btn btn-outline" href="#contact">Hire me</a>
+              <button class="btn btn-orange" id="resumePreviewBtn" type="button">Preview Resume</button>
+              <a class="btn btn-link" id="resumeBtn" href="#" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                Download CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- ============ SKILLS ============ -->
-    <section id="skills" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">05.</span> Skills</h2>
-      <div class="skills-grid" id="skillsGrid"></div>
+    <!-- ============ PROJECTS (carousel) ============ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title reveal">Let's have a look at<br />my <span class="accent">Portfolio</span></h2>
+          <a class="btn btn-orange reveal" id="seeAllProjects" href="#" target="_blank" rel="noopener">See All</a>
+        </div>
+      </div>
+      <div class="carousel" id="projectsGrid" tabindex="0" aria-label="Projects — scroll horizontally"></div>
+      <div class="container carousel-controls">
+        <div class="carousel-arrows">
+          <button class="arrow-btn" id="projPrev" type="button" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="arrow-btn" id="projNext" type="button" aria-label="Next project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="dots" id="projectsDots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS (dark, glass cards) ============ -->
+    <section id="skills" class="section-dark skills">
+      <span class="blob blob-c" aria-hidden="true"></span>
+      <div class="container">
+        <h2 class="section-title center reveal">The Stack Behind<br /><span class="accent">My Results</span></h2>
+        <p class="section-lead center reveal">The clouds, pipelines and tooling I use every day to ship reliable, secure and cost-efficient infrastructure.</p>
+        <div class="skills-grid" id="skillsGrid"></div>
+      </div>
     </section>
 
     <!-- ============ CERTIFICATIONS ============ -->
-    <section id="certifications" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">06.</span> Certifications</h2>
-      <div class="certs-grid" id="certsGrid"></div>
-    </section>
-
-    <!-- ============ RESUME ============ -->
-    <section id="resume" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">07.</span> Resume</h2>
-      <div class="resume-card glass reveal" id="resumeCard"></div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section id="contact" class="section container">
-      <h2 class="section-title reveal"><span class="section-index">08.</span> Get In Touch</h2>
-      <div class="contact-wrap">
-        <div class="contact-info reveal" id="contactInfo"></div>
-        <form class="contact-form glass reveal" id="contactForm">
-          <div class="form-row">
-            <label for="cf-name">Name</label>
-            <input type="text" id="cf-name" name="name" required placeholder="Your name" />
-          </div>
-          <div class="form-row">
-            <label for="cf-email">Email</label>
-            <input type="email" id="cf-email" name="email" required placeholder="you@example.com" />
-          </div>
-          <div class="form-row">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <p class="form-note" id="formNote"></p>
-        </form>
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-top">
+          <h2 class="section-title reveal">My <span class="accent">Certifications</span></h2>
+          <p class="section-lead reveal">Professional training and credentials across cloud, DevOps, networking and Linux. Click any certificate to view it.</p>
+        </div>
+        <div class="certs-grid" id="certsGrid"></div>
       </div>
     </section>
+
+    <!-- ============ CONTACT CTA ============ -->
+    <section id="contact" class="section cta">
+      <div class="container">
+        <h2 class="section-title center reveal">Have an Awesome Project<br />Idea? <span class="accent">Let's Discuss</span></h2>
+        <form class="cta-form reveal" id="contactForm">
+          <span class="cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <label class="visually-hidden" for="cf-message">Your message</label>
+          <input type="text" id="cf-message" name="message" required placeholder="Tell me about your project or opportunity" autocomplete="off" />
+          <button type="submit" class="btn btn-orange">Send</button>
+        </form>
+        <p class="form-note" id="formNote" role="status"></p>
+        <ul class="cta-badges reveal" id="ctaBadges"></ul>
+        <div class="contact-info reveal" id="contactInfo"></div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE (crossing bands) ============ -->
+    <div class="marquee-zone" aria-hidden="true">
+      <div class="band band-dark"><div class="band-track" id="marqueeTrackB"></div></div>
+      <div class="band band-orange"><div class="band-track" id="marqueeTrack"></div></div>
+    </div>
   </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <p id="footerText"></p>
-      <div class="footer-socials" id="footerSocials"></div>
+    <div class="container">
+      <div class="footer-top">
+        <h2>Let's Connect there</h2>
+        <a class="btn btn-orange" id="footerHire" href="#">
+          Hire me
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="brand" aria-label="Yash Jadhav — back to top">
+            <span class="brand-mark" aria-hidden="true">YJ</span>
+            <span class="brand-text">YASH</span>
+          </a>
+          <p id="footerAbout"></p>
+          <div class="footer-socials" id="footerSocials"></div>
+        </div>
+        <div>
+          <h3 class="footer-h">Navigation</h3>
+          <ul class="footer-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-h">Contact</h3>
+          <ul class="footer-list" id="footerContact"></ul>
+        </div>
+        <div>
+          <h3 class="footer-h">Resume</h3>
+          <p class="footer-note">Grab a copy of my resume for the full story.</p>
+          <a class="btn btn-orange btn-sm" id="footerResume" href="#" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download CV
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p id="footerText"></p>
+        <p>Built with HTML, CSS &amp; JavaScript</p>
+      </div>
     </div>
   </footer>
 
-  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+  <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=11"></script>
-  <script src="js/main.js?v=11"></script>
+  <script src="js/data.js?v=13"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>
